@@ -1,4 +1,6 @@
 import processing.core.PApplet;
+import processing.core.PFont;
+import processing.core.PImage;
 
 public class TresEnRatlla extends PApplet{
 
@@ -6,6 +8,9 @@ public class TresEnRatlla extends PApplet{
     Casella c1, c2, c3;
     // Variable de classe Tauler
     Tauler t;
+    // Fonts per mostrar textos
+    PFont font1, font2;
+
     public void settings(){
         size(800, 800);
     }
@@ -27,24 +32,28 @@ public class TresEnRatlla extends PApplet{
 
         // Crea un Tauler de 3x3 de tota l'amplada de la finestra
         t = new Tauler(3, width);
+        t.setImatges(this);
+
+        // Carregar fonts
+        font1 = createFont("Dimitri.ttf", 48);
+        font2 = createFont("Platinum.ttf", 24);
+
 
     }
 
     public void draw(){
         background(200,100,100);
-        // Dibuixa'm les 3 caselles
-        c1.display(this);
-        c2.display(this);
-        c3.display(this);
 
         // Dibuixa el tauler (i totes les seves caselles)
         t.display(this);
         if(t.hihaGuanyador){
             textAlign(CENTER); textSize(24); fill(0);
+            textFont(font1);
             text("GUANYADOR "+t.guanyador,width/2,height/2-20);
         }
         if(t.finalPartida){
             textAlign(CENTER); textSize(24); fill(0);
+            textFont(font2);
             text("FINAL PARTIDA", width/2, height/2 + 20);
         }
 

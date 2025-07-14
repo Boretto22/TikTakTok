@@ -1,4 +1,6 @@
 import processing.core.PApplet;
+import processing.core.PImage;
+
 public class Casella {
 
     // Enumerat amb els valors de les caselles del tauler
@@ -12,6 +14,8 @@ public class Casella {
     float x, y;
     // Mides de la casella
     float w;
+    // Valor de la casella segons el Minimax
+    int valorMiniMax;
 
     // Constructor
     public Casella(int f, int c, float x, float y, float w){
@@ -26,6 +30,11 @@ public class Casella {
     public void setValor(VALOR v){
         this.valor = v;
     }
+    // Setter de la propietat valorMiniMax
+    public void setValorMiniMax(int m){
+        this.valorMiniMax = m;
+    }
+
     // Indica si el punt(x, y) està dins la casella (quadrada)
     public boolean estaDins(float x, float y){
         return (this.x<=x && x<=this.x+w &&
@@ -33,7 +42,7 @@ public class Casella {
     }
 
     // Mètode per dibuixar la casella (emprant processing)
-    public void display(PApplet p5){
+    public void display(PApplet p5, PImage imgCercle, PImage imgCreu){
         p5.pushStyle();
         p5.rectMode(p5.CORNER);
         p5.fill(255);
@@ -41,16 +50,13 @@ public class Casella {
             p5.fill(200);
         }
         p5.rect(x, y, w, w);
+
         if(valor==VALOR.CREU){
-            p5.line(x, y, x+w, y+w);
-            p5.line(x, y+w, x+w, y);
+            p5.image(imgCreu, x, y, w, w);
         }
         else if(valor==VALOR.CERCLE){
-            p5.ellipse(x + w/2, y + w/2, w/2, w/2);
+            p5.image(imgCercle,x,y,w,w);
         }
-        p5.fill(0);
-        p5.textAlign(p5.CENTER); p5.textSize(18);
-        p5.text(this.fila+", "+this.columna, x+this.w/2, y+20);
         p5.popStyle();
     }
 

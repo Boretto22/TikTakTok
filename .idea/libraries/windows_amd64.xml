@@ -4,6 +4,7 @@
       <root url="jar://$PROJECT_DIR$/../processing-4.3.2-windows-x64/processing-4.3.2/core/library/core.jar!/" />
       <root url="jar://$PROJECT_DIR$/../processing-4.3.2-windows-x64/processing-4.3.2/core/library/gluegen-rt.jar!/" />
       <root url="jar://$PROJECT_DIR$/../processing-4.3.2-windows-x64/processing-4.3.2/core/library/jogl-all.jar!/" />
+      <root url="file://$USER_HOME$/Documents/Processing/libraries/sound" />
     </CLASSES>
     <JAVADOC />
     <NATIVE>

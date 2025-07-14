@@ -1,6 +1,7 @@
 import processing.core.PApplet;
 import processing.core.PImage;
 
+
 public class Tauler {
 
     // Imatges del símbols del joc
@@ -21,6 +22,7 @@ public class Tauler {
     // Array bidimensional de caselles
     Casella[][] caselles;
 
+
     // Constructor
     public Tauler(int n, float w){
         caselles = new Casella[n][n];
@@ -36,11 +38,17 @@ public class Tauler {
         }
     }
 
+    // Setter per definir les imatges del Tres en ratlla
+    public void setImatges(PApplet p5){
+        this.imgCreu   = p5.loadImage("creu.png");
+        this.imgCercle = p5.loadImage("cercle.png");
+    }
+
     // Dibuixa el tauler del joc
     public void display(PApplet p5){
         for(int f = 0; f< caselles.length; f++){
             for(int c = 0; c< caselles[f].length; c++){
-                caselles[f][c].display(p5);
+                caselles[f][c].display(p5, imgCreu, imgCercle);
             }
         }
     }
